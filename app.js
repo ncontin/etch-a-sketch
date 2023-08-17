@@ -1,9 +1,6 @@
 const container = document.querySelector("#container");
 const btn = document.querySelector("#btn");
-
-btn.addEventListener("click", () => {
-  console.log("click");
-});
+let dynamicValue = 16;
 
 function createGrid(x) {
   for (let rows = 0; rows < x; rows++) {
@@ -13,17 +10,39 @@ function createGrid(x) {
       container.appendChild(div);
     }
   }
+  const grids = document.querySelectorAll(".grid");
+  grids.forEach((grid) => {
+    grid.style.flexBasis = `calc(100% / ${dynamicValue})`;
+  });
 }
 
 createGrid(16);
 
 function addHovering() {
-  const grid = document.querySelectorAll(".grid");
-  grid.forEach((square) => {
-    square.addEventListener("mouseover", (e) => {
+  const grids = document.querySelectorAll(".grid");
+  grids.forEach((grid) => {
+    grid.addEventListener("mouseover", (e) => {
       e.target.style.backgroundColor = "black";
     });
   });
 }
 
 addHovering();
+
+function clearGrid() {
+  const grids = document.querySelectorAll(".grid");
+  grids.forEach((grid) => {
+    grid.remove();
+  });
+}
+
+btn.addEventListener("click", () => {
+  const numberOfSquares = Number(window.prompt("enter the number of square per side, MAX 100", ""));
+
+  if (Number.isInteger(numberOfSquares) && parseInt(numberOfSquares) <= 100) {
+    dynamicValue = numberOfSquares;
+    clearGrid();
+    createGrid(numberOfSquares);
+    addHovering();
+  }
+});
