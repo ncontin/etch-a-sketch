@@ -1,4 +1,9 @@
 const container = document.querySelector("#container");
+const btn = document.querySelector("#btn");
+
+btn.addEventListener("click", () => {
+  console.log("click");
+});
 
 function createGrid(x) {
   for (let rows = 0; rows < x; rows++) {
@@ -11,3 +16,14 @@ function createGrid(x) {
 }
 
 createGrid(16);
+
+function addHovering() {
+  const grid = document.querySelectorAll(".grid");
+  grid.forEach((square) => {
+    square.addEventListener("mouseover", (e) => {
+      e.target.style.backgroundColor = "black";
+    });
+  });
+}
+
+addHovering();
