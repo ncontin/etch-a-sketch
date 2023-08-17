@@ -1,0 +1,12 @@
+.grid {
+  outline: 1px solid black;
+  flex-basis: calc(100% / 16);
+}
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 960px;
+  height: 960px;
+}
