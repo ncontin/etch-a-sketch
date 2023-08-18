@@ -1,12 +1,121 @@
-.grid {
-  outline: 1px solid rgba(0, 0, 0, 0.1);
+/* CSS Simple Reset */
 
+html {
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
-#container {
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* CSS Style */
+
+body {
+  height: 100vh;
+}
+
+.grid {
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 1200px;
+  background-color: rgba(255, 0, 0, 0.724);
+  border-radius: 20px;
+  margin: auto;
+  padding: 20px;
+}
+
+#board {
   display: flex;
   flex-wrap: wrap;
   margin: auto;
-  width: 480px;
-  height: 480px;
+  width: 640px;
+  height: 640px;
+  background-color: white;
+  box-shadow: inset 0 0 10px #000000;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.title {
+  text-align: center;
+  font-family: "Dancing Script", cursive;
+  font-weight: 600;
+  font-size: 64px;
+  color: goldenrod;
+}
+
+.header,
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.clearBtn,
+.eraserBtn,
+.blackBtn,
+.colorBtn,
+#btn {
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 10px solid grey;
+  box-shadow: 0px 0px 10px black;
+}
+
+.clearBtn:hover,
+.eraserBtn:hover,
+.blackBtn:hover,
+.colorBtn:hover,
+#btn:hover {
+  background-color: black;
+  color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 10px solid grey;
+  box-shadow: 0px 0px 10px black;
+}
+
+.blackBtn {
+  margin-right: 10px;
 }

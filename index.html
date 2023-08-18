@@ -5,15 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Etch-a-Sketch</h1>
-    <button id="btn">Number of Squares</button>
-    <button class="blackBtn">black</button>
-    <button class="colorBtn">color</button>
-    <button class="eraser">eraser</button>
-    <button class="clearBtn">clear</button>
-    <div id="container"></div>
+    <div class="wrapper">
+      <div class="container">
+        <div class="header">
+          <button id="btn">Gride Size</button>
+          <h1 class="title">Etch-a-Sketch</h1>
+          <button class="eraserBtn">Eraser</button>
+        </div>
+
+        <div id="board"></div>
+
+        <div class="footer">
+          <div>
+            <button class="blackBtn">Black</button>
+            <button class="colorBtn">Color</button>
+          </div>
+          <button class="clearBtn">Clear</button>
+        </div>
+      </div>
+    </div>
   </body>
   <script src="app.js"></script>
 </html>

@@ -1,12 +1,12 @@
 //Global variables
 
-const container = document.querySelector("#container");
+const board = document.querySelector("#board");
 const btn = document.querySelector("#btn");
 const color = document.querySelector(".colorBtn");
 const black = document.querySelector(".blackBtn");
 const clear = document.querySelector(".clearBtn");
-const eraser = document.querySelector(".eraser");
-let dynamicValue = 16;
+const eraser = document.querySelector(".eraserBtn");
+let dynamicValue = 64;
 let isBlack = true;
 let isColor = false;
 let isErased = false;
@@ -17,7 +17,7 @@ function createGrid(x) {
     for (let cols = 0; cols < x; cols++) {
       const div = document.createElement("div");
       div.classList.add("grid");
-      container.appendChild(div);
+      board.appendChild(div);
     }
   }
   const grids = document.querySelectorAll(".grid");
@@ -26,7 +26,7 @@ function createGrid(x) {
   });
 }
 
-createGrid(16);
+createGrid(64);
 
 function addHovering() {
   const grids = document.querySelectorAll(".grid");
@@ -95,7 +95,7 @@ clear.addEventListener("click", () => {
 });
 
 btn.addEventListener("click", () => {
-  const numberOfSquares = Number(window.prompt("enter the number of square per side, MAX 100", ""));
+  const numberOfSquares = Number(window.prompt("Enter the number of squares per side, MAX 100", ""));
 
   if (numberOfSquares && numberOfSquares <= 100 && numberOfSquares > 0) {
     dynamicValue = numberOfSquares;
