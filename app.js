@@ -3,12 +3,13 @@
 const container = document.querySelector("#container");
 const btn = document.querySelector("#btn");
 const color = document.querySelector(".colorBtn");
-const black = document.querySelector("#blackBtn");
+const black = document.querySelector(".blackBtn");
 const clear = document.querySelector(".clearBtn");
+const eraser = document.querySelector(".eraser");
 let dynamicValue = 16;
 let isBlack = true;
-let isColor = true;
-
+let isColor = false;
+let isErased = false;
 //Functions
 
 function createGrid(x) {
@@ -29,17 +30,23 @@ createGrid(16);
 
 function addHovering() {
   const grids = document.querySelectorAll(".grid");
-  if (isBlack === true) {
+  if (isBlack) {
     grids.forEach((grid) => {
       grid.addEventListener("mouseover", (e) => {
         e.target.style.backgroundColor = `black`;
       });
     });
-  } else if (isColor === true) {
+  } else if (isColor) {
     grids.forEach((grid) => {
       grid.addEventListener("mouseover", (e) => {
         let randomColor = Math.floor(Math.random() * 16777215).toString(16);
         e.target.style.backgroundColor = `#${randomColor}`;
+      });
+    });
+  } else if (isErased) {
+    grids.forEach((grid) => {
+      grid.addEventListener("mouseover", (e) => {
+        e.target.style.backgroundColor = `white`;
       });
     });
   }
@@ -66,12 +73,21 @@ function removeGrid() {
 black.addEventListener("click", () => {
   isBlack = true;
   isColor = false;
+  isErased = false;
   addHovering();
 });
 color.addEventListener("click", () => {
   isColor = true;
   isBlack = false;
+  isErased = false;
   addHovering();
+});
+eraser.addEventListener("click", () => {
+  isErased = true;
+  isColor = false;
+  isBlack = false;
+  addHovering();
+  console.log("eraser enabled");
 });
 
 clear.addEventListener("click", () => {
@@ -87,9 +103,6 @@ btn.addEventListener("click", () => {
     createGrid(numberOfSquares);
     addHovering();
   } else {
-    console.log("prompt cancelled");
-    removeGrid();
-    createGrid(16);
-    addHovering();
+    return;
   }
 });

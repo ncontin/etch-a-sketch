@@ -1,6 +1,6 @@
 .grid {
-  outline: 1px solid black;
-  flex-basis: calc(100% / 16);
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+
 }
 
 #container {
