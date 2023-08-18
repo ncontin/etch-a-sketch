@@ -46,7 +46,7 @@ function addHovering() {
   } else if (isErased) {
     grids.forEach((grid) => {
       grid.addEventListener("mouseover", (e) => {
-        e.target.style.backgroundColor = `white`;
+        e.target.style.backgroundColor = ``;
       });
     });
   }
