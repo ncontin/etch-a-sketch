@@ -1,10 +1,15 @@
+//Global variables
+
 const container = document.querySelector("#container");
 const btn = document.querySelector("#btn");
 const color = document.querySelector(".colorBtn");
 const black = document.querySelector("#blackBtn");
 const clear = document.querySelector(".clearBtn");
-
 let dynamicValue = 16;
+let isBlack = true;
+let isColor = true;
+
+//Functions
 
 function createGrid(x) {
   for (let rows = 0; rows < x; rows++) {
@@ -22,66 +27,68 @@ function createGrid(x) {
 
 createGrid(16);
 
-let isBlack = true;
-let isColor = false;
-
-black.addEventListener("click", () => {
-  isBlack = true;
-  console.log("black enabled");
-});
-
-
-
 function addHovering() {
   const grids = document.querySelectorAll(".grid");
-  if (isBlack) {
+  if (isBlack === true) {
     grids.forEach((grid) => {
       grid.addEventListener("mouseover", (e) => {
         e.target.style.backgroundColor = `black`;
-        grid.classList.add("active");
       });
     });
-  } else {
+  } else if (isColor === true) {
     grids.forEach((grid) => {
       grid.addEventListener("mouseover", (e) => {
         let randomColor = Math.floor(Math.random() * 16777215).toString(16);
         e.target.style.backgroundColor = `#${randomColor}`;
-        grid.classList.add("active");
       });
     });
   }
 }
-
-// function addTransparency() {
-//   const active = document.querySelectorAll(".active");
-//   active.forEach((square) => {
-//     square.addEventListener("mouseover", (e) => {
-//       let
-//       e.target.style.backgroundColor = `#${randomColor}`;
-//       grid.classList.add("active");
-//     });
-//   });
-// }
 
 addHovering();
 
 function clearGrid() {
   const grids = document.querySelectorAll(".grid");
   grids.forEach((grid) => {
+    grid.style.backgroundColor = "";
+  });
+}
+
+function removeGrid() {
+  const grids = document.querySelectorAll(".grid");
+  grids.forEach((grid) => {
     grid.remove();
   });
 }
+
+//Event Listeners
+
+black.addEventListener("click", () => {
+  isBlack = true;
+  isColor = false;
+  addHovering();
+});
+color.addEventListener("click", () => {
+  isColor = true;
+  isBlack = false;
+  addHovering();
+});
+
+clear.addEventListener("click", () => {
+  clearGrid();
+});
 
 btn.addEventListener("click", () => {
   const numberOfSquares = Number(window.prompt("enter the number of square per side, MAX 100", ""));
 
   if (numberOfSquares && numberOfSquares <= 100 && numberOfSquares > 0) {
-    clearGrid();
+    dynamicValue = numberOfSquares;
+    removeGrid();
     createGrid(numberOfSquares);
     addHovering();
   } else {
     console.log("prompt cancelled");
-    clearGrid();
+    removeGrid();
     createGrid(16);
     addHovering();
   }
