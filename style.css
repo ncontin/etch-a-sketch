@@ -1,14 +1,14 @@
 /* CSS Simple Reset */
 
 html {
-  box-sizing: border-box;
-  font-size: 16px;
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 body,
@@ -21,72 +21,77 @@ h6,
 p,
 ol,
 ul {
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
 }
 
 ol,
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 /* CSS Style */
+:root {
+    --main-bg-color: rgba(255, 0, 0, 0.724);
+    --hover-bg-color: black;
+    --hover-text-color: white;
+}
 
 body {
-  height: 100vh;
+    height: 100vh;
 }
 
 .grid {
-  outline: 1px solid rgba(0, 0, 0, 0.1);
+    outline: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .wrapper {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container {
-  width: 1000px;
-  background-color: rgba(255, 0, 0, 0.724);
-  border-radius: 20px;
-  margin: auto;
-  padding: 20px;
+    width: 1000px;
+    background-image: linear-gradient(to bottom right, #641e1e, #ff0000b9);
+    border-radius: 20px;
+    margin: auto;
+    padding: 20px;
 }
 
 #board {
-  display: flex;
-  flex-wrap: wrap;
-  margin: auto;
-  width: 640px;
-  height: 640px;
-  background-color: white;
-  box-shadow: inset 0 0 10px #000000;
-  border-radius: 5px;
-  padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 640px;
+    height: 640px;
+    background-color: white;
+    box-shadow: inset 0 0 10px #000000;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .title {
-  text-align: center;
-  font-family: "Dancing Script", cursive;
-  font-weight: 600;
-  font-size: 64px;
-  color: goldenrod;
+    text-align: center;
+    font-family: "Dancing Script", cursive, sans-serif;
+    font-weight: 600;
+    font-size: 64px;
+    color: goldenrod;
 }
 
 .header,
 .footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
 }
 
 .clearBtn,
@@ -94,12 +99,13 @@ body {
 .blackBtn,
 .colorBtn,
 #btn {
-  background-color: white;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 10px solid grey;
-  box-shadow: 0px 0px 10px black;
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 10px solid grey;
+    box-shadow: 0px 0px 10px black;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .clearBtn:hover,
@@ -107,15 +113,15 @@ body {
 .blackBtn:hover,
 .colorBtn:hover,
 #btn:hover {
-  background-color: black;
-  color: white;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 10px solid grey;
-  box-shadow: 0px 0px 10px black;
+    background-color: black;
+    color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 10px solid grey;
+    box-shadow: 0px 0px 10px black;
 }
 
 .blackBtn {
-  margin-right: 10px;
+    margin-right: 10px;
 }

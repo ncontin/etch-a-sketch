@@ -6,7 +6,7 @@ const color = document.querySelector(".colorBtn");
 const black = document.querySelector(".blackBtn");
 const clear = document.querySelector(".clearBtn");
 const eraser = document.querySelector(".eraserBtn");
-let dynamicValue = 64;
+let dynamicValue = 32;
 let isBlack = true;
 let isColor = false;
 let isErased = false;
@@ -29,7 +29,7 @@ function createGrid(x) {
     });
 }
 
-createGrid(64);
+createGrid(32);
 
 function click() {
     const grids = document.querySelectorAll(".grid");
@@ -46,7 +46,6 @@ click();
 function addHovering() {
     const grids = document.querySelectorAll(".grid");
 
-    // Remove previous event listeners
     if (hoverFunction) {
         grids.forEach((grid) => {
             grid.removeEventListener("mouseover", hoverFunction);
@@ -130,6 +129,7 @@ btn.addEventListener("click", () => {
         dynamicValue = numberOfSquares;
         removeGrid();
         createGrid(numberOfSquares);
+        click();
         addHovering();
     } else {
         return;
